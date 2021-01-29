@@ -28,9 +28,10 @@ int main(int argc, char **argv)
 
 	signal(SIGINT, signal_handler);
 
-	ret = tftlcd_open();
+	ret = tftlcd_open(TFTLCD_MODE_LANDSCAPE);
 	if (ret) {
 		printf("tftlcd_open failed, error: %d\n", ret);
+		return ret;
 	}
 
 	ret |= tftlcd_clear(BLACK);
